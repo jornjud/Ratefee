@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คำนวณค่าธรรมเนียมการโอนเงิน</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>คำนวณค่าธรรมเนียมการโอนเงิน</h1>
+    <form id="feeForm">
+        <label for="type">เลือกประเภทการโอน:</label>
+        <select id="type" name="type" onchange="calculateFee()">
+            <option value="bank">โอนเงินเข้าบัญชีธนาคาร</option>
+            <option value="trueMoney">เติมเงินเข้าทรูมันนี่</option>
+        </select>
+        
+        <label for="amount">กรอกจำนวนเงิน (บาท):</label>
+        <input type="number" id="amount" name="amount" oninput="calculateFee()" min="0" step="0.01">
+        
+        <div id="feeResult">
+            <p>ค่าธรรมเนียม: <span id="fee">0</span> บาท</p>
+        </div>
+    </form>
+    
+    <h2>ตารางค่าธรรมเนียม</h2>
+    <table id="feeTable">
+        <thead>
+            <tr>
+                <th>ยอดโอน (บาท)</th>
+                <th>ค่าบริการ (บาท)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- ตารางจะถูกสร้างขึ้นโดย JavaScript -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
