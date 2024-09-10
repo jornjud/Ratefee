@@ -20,8 +20,6 @@ function updateFeeDisplay() {
     const amount = parseFloat(document.getElementById('amount').value) || 0;
     const fee = calculateFee(amount, type);
     document.getElementById('fee').textContent = fee.toLocaleString();
-    
-    // แสดงจำนวนเงินที่ใช้ในการคำนวณ
     document.getElementById('calculatedAmount').textContent = amount.toLocaleString();
 }
 
@@ -61,9 +59,9 @@ function createFeeTable(type) {
         const maxDisplay = typeof range.max === 'number' ? range.max.toLocaleString() : range.max;
         const feeDisplay = typeof range.fee === 'number' ? range.fee.toLocaleString() : range.fee;
         row.innerHTML = `
-            <td class="p-3 text-center">${range.min.toLocaleString()} - ${maxDisplay}</td>
-            <td class="p-3 text-center">${range.max === 'ขึ้นไป' ? '-' : maxDisplay}</td>
-            <td class="p-3 text-center">${feeDisplay}</td>
+            <td data-label="ยอดโอน (บาท)" class="fee-range">${range.min.toLocaleString()} - ${maxDisplay}</td>
+            <td data-label="ตัวอย่างจำนวนเงิน" class="fee-example">${range.max === 'ขึ้นไป' ? '-' : maxDisplay}</td>
+            <td data-label="ค่าบริการ (บาท)" class="fee-value">${feeDisplay}</td>
         `;
         tableBody.appendChild(row);
     });

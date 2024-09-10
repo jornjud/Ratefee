@@ -1,60 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
 
+:root {
+    --primary-color: #4299e1;
+    --primary-dark: #2c5282;
+    --secondary-color: #4a5568;
+    --background-color: #f0f7ff;
+    --card-background: white;
+    --border-color: #e2e8f0;
+}
+
 body {
     font-family: 'Sarabun', sans-serif;
-    background-color: #f0f7ff;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    line-height: 1.6;
 }
 
 .container {
+    width: 100%;
     max-width: 800px;
-    margin: 2rem auto;
+    margin: 1rem auto;
     padding: 0 1rem;
 }
 
 h1 {
-    color: #2c5282;
+    color: var(--primary-dark);
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .card {
-    background-color: white;
+    background-color: var(--card-background);
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     overflow: hidden;
 }
 
 .card-header {
-    background-color: #4299e1;
+    background-color: var(--primary-color);
     color: white;
-    padding: 1rem 1.5rem;
+    padding: 1rem;
     font-weight: 600;
     font-size: 1.25rem;
 }
 
 .card-body {
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 .input-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #4a5568;
+    color: var(--secondary-color);
 }
 
 select, input[type="number"] {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 1rem;
     transition: border-color 0.2s ease-in-out;
@@ -62,46 +73,47 @@ select, input[type="number"] {
 
 select:focus, input[type="number"]:focus {
     outline: none;
-    border-color: #4299e1;
+    border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
 }
 
 .result {
     background-color: #ebf8ff;
-    border-left: 4px solid #4299e1;
-    padding: 1rem 1.5rem;
-    margin-top: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem;
+    margin-top: 1rem;
     border-radius: 6px;
 }
 
 .result-text {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600;
-    color: #2c5282;
+    color: var(--primary-dark);
 }
 
 .result-value {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #2b6cb0;
+    color: var(--primary-color);
 }
 
 table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
+    font-size: 0.9rem;
 }
 
 th, td {
-    padding: 1rem;
+    padding: 0.75rem 0.5rem;
     text-align: center;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
 }
 
 th {
     background-color: #edf2f7;
     font-weight: 600;
-    color: #4a5568;
+    color: var(--secondary-color);
 }
 
 tr:nth-child(even) {
@@ -113,15 +125,76 @@ tr:hover {
 }
 
 .fee-range {
-    color: #2c5282;
+    color: var(--primary-dark);
     font-weight: 600;
 }
 
 .fee-example {
-    color: #4a5568;
+    color: var(--secondary-color);
 }
 
 .fee-value {
-    color: #2b6cb0;
+    color: var(--primary-color);
     font-weight: 600;
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .card-header {
+        padding: 1rem 1.5rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    table {
+        font-size: 1rem;
+    }
+
+    th, td {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 639px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin-bottom: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+    }
+
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+    }
+
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+    }
 }
