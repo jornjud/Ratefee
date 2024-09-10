@@ -1,44 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+    font-family: 'Sarabun', sans-serif;
+    background-color: #f0f7ff;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
 h1 {
+    color: #2c5282;
     text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 2.5rem;
 }
 
-form {
-    margin-bottom: 20px;
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #4299e1;
+    color: white;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
 }
 
 label {
     display: block;
-    margin: 10px 0 5px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #4a5568;
 }
 
-input, select {
-    margin-bottom: 10px;
+select, input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease-in-out;
 }
 
-#feeResult {
-    font-size: 18px;
-    font-weight: bold;
+select:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.result {
+    background-color: #ebf8ff;
+    border-left: 4px solid #4299e1;
+    padding: 1rem 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 6px;
+}
+
+.result-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2c5282;
+}
+
+.result-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2b6cb0;
 }
 
 table {
     width: 100%;
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid black;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
 th, td {
-    padding: 10px;
+    padding: 1rem;
     text-align: center;
+    border: 1px solid #e2e8f0;
 }
 
-thead {
-    background-color: #f4f4f4;
+th {
+    background-color: #edf2f7;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+tr:nth-child(even) {
+    background-color: #f7fafc;
+}
+
+tr:hover {
+    background-color: #ebf8ff;
+}
+
+.fee-range {
+    color: #2c5282;
+    font-weight: 600;
+}
+
+.fee-example {
+    color: #4a5568;
+}
+
+.fee-value {
+    color: #2b6cb0;
+    font-weight: 600;
 }

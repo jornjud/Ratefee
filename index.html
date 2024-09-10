@@ -4,38 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>คำนวณค่าธรรมเนียมการโอนเงิน</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <h1>คำนวณค่าธรรมเนียมการโอนเงิน</h1>
-    <form id="feeForm">
-        <label for="type">เลือกประเภทการโอน:</label>
-        <select id="type" name="type" onchange="calculateFee()">
-            <option value="bank">โอนเงินเข้าบัญชีธนาคาร</option>
-            <option value="trueMoney">เติมเงินเข้าทรูมันนี่</option>
-        </select>
+    <div class="container">
+        <h1>คำนวณค่าธรรมเนียมการโอนเงิน</h1>
         
-        <label for="amount">กรอกจำนวนเงิน (บาท):</label>
-        <input type="number" id="amount" name="amount" oninput="calculateFee()" min="0" step="0.01">
-        
-        <div id="feeResult">
-            <p>ค่าธรรมเนียม: <span id="fee">0</span> บาท</p>
+        <div class="card">
+            <div class="card-header">กรอกข้อมูลการโอนเงิน</div>
+            <div class="card-body">
+                <form id="feeForm">
+                    <div class="input-group">
+                        <label for="type">เลือกประเภทการโอน:</label>
+                        <select id="type">
+                            <option value="bank">โอนเงินเข้าบัญชีธนาคาร</option>
+                            <option value="trueMoney">เติมเงินเข้าทรูมันนี่</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="amount">กรอกจำนวนเงิน (บาท):</label>
+                        <input type="number" id="amount" min="1">
+                    </div>
+                </form>
+                
+                <div class="result">
+                    <div class="result-text">ค่าธรรมเนียม: <span id="fee" class="result-value">0</span> บาท</div>
+                    <div class="result-text">จำนวนเงินที่คำนวณ: <span id="calculatedAmount" class="result-value">0</span> บาท</div>
+                </div>
+            </div>
         </div>
-    </form>
-    
-    <h2>ตารางค่าธรรมเนียม</h2>
-    <table id="feeTable">
-        <thead>
-            <tr>
-                <th>ยอดโอน (บาท)</th>
-                <th>ค่าบริการ (บาท)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- ตารางจะถูกสร้างขึ้นโดย JavaScript -->
-        </tbody>
-    </table>
 
+        <div class="card">
+            <div class="card-header">ตารางค่าธรรมเนียม</div>
+            <div class="card-body">
+                <table id="feeTable">
+                    <thead>
+                        <tr>
+                            <th>ยอดโอน (บาท)</th>
+                            <th>ตัวอย่างจำนวนเงิน</th>
+                            <th>ค่าบริการ (บาท)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ตารางจะถูกเติมด้วย JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
     <script src="scripts.js"></script>
 </body>
 </html>
