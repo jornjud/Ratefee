@@ -42,8 +42,8 @@ function createFeeTable(type) {
     } else if (type === 'trueMoney') {
         ranges = [
             {min: 1, max: 300, fee: 5},
-            {min: 301, max: 500, fee: 10},
-            {min: 501, max: 1000, fee: 15},
+            {min: 301, max: 499, fee: 10},
+            {min: 500, max: 1000, fee: 20},
             {min: 1001, max: 10000, fee: 40},
             {min: 10001, max: 20000, fee: 80},
             {min: 20001, max: 30000, fee: 120},
